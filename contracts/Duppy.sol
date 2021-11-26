@@ -5,6 +5,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 
+// We need to import the helper functions from the contract that we copy/pasted.
+import {Base64} from "./libraries/Base64.sol";
+
 contract Duppy is ERC721URIStorage {
     // OpenZeppelin to help us keep track of tokenIds.
     // the 'using' directive keyword is for libraries i.e. counters
@@ -79,6 +82,7 @@ contract Duppy is ERC721URIStorage {
         );
         // Squash the # between 0 and the length of the array to avoid going out of bounds.
         rand = rand % firstWords.length;
+        console.log("The 1st random number generated: %s", rand);
         return firstWords[rand];
     }
 
@@ -91,6 +95,7 @@ contract Duppy is ERC721URIStorage {
             string(abi.encodePacked("SECOND_WORD", Strings.toString(tokenId)))
         );
         rand = rand % secondWords.length;
+        console.log("The 2nd random number generated: %s", rand);
         return secondWords[rand];
     }
 
@@ -103,6 +108,7 @@ contract Duppy is ERC721URIStorage {
             string(abi.encodePacked("THIRD_WORD", Strings.toString(tokenId)))
         );
         rand = rand % thirdWords.length;
+        console.log("The third random number generated: %s", rand);
         return thirdWords[rand];
     }
 
@@ -110,27 +116,60 @@ contract Duppy is ERC721URIStorage {
         return uint256(keccak256(abi.encodePacked(input)));
     }
 
-   function makeAnEpicNFT() public {
-    uint256 newItemId = _tokenIds.current();
+    function makeAnEpicNFT() public {
+        uint256 newItemId = _tokenIds.current();
 
-    // We go and randomly grab one word from each of the three arrays.
-    string memory first = pickRandomFirstWord(newItemId);
-    string memory second = pickRandomSecondWord(newItemId);
-    string memory third = pickRandomThirdWord(newItemId);
+        // We go and randomly grab one word from each of the three arrays.
+        string memory first = pickRandomFirstWord(newItemId);
+        string memory second = pickRandomSecondWord(newItemId);
+        string memory third = pickRandomThirdWord(newItemId);
 
-    // I concatenate it all together, and then close the <text> and <svg> tags.
-    string memory finalSvg = string(abi.encodePacked(baseSvg, first, second, third, "</text></svg>"));
-    console.log("\n--------------------");
-    console.log(finalSvg);
-    console.log("--------------------\n");
+        string memory combinedWord = string(
+            abi.encodePacked(first, second, third)
+        );
 
-    _safeMint(msg.sender, newItemId);
-  
-    // We'll be setting the tokenURI later!
-    _setTokenURI(newItemId, "blah");
-  
-    _tokenIds.increment();
-    console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
-  }
+        // I concatenate it all together, and then close the <text> and <svg> tags.
+        string memory finalSvg = string(
+            abi.encodePacked(baseSvg, first, second, third, "</text></svg>")
+        );
 
+        // Get all the JSON metadata in place and base64 encode it.
+        string memory json = Base64.encode(
+            bytes(
+                string(
+                    abi.encodePacked(
+                        '{"name": "',
+                        // We set the title of our NFT as the generated word.
+                        combinedWord,
+                        '", "description": "A highly acclaimed collection of squares.", "image": "data:image/svg+xml;base64,',
+                        // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
+                        Base64.encode(bytes(finalSvg)),
+                        '"}'
+                    )
+                )
+            )
+        );
+
+        // prepend data:application/json;base64, to json data.
+        string memory finalTokenUri = string(
+            abi.encodePacked("data:application/json;base64,", json)
+        );
+
+        _safeMint(msg.sender, newItemId);
+
+        // Sett the tokenURI ()
+        _setTokenURI(newItemId, finalTokenUri);
+
+        console.log("\n--------------------");
+        // log NFT preview URL with URI for quick debug
+        console.log("https://nftpreview.0xdev.codes/?code=", finalTokenUri);
+        console.log("--------------------\n");
+
+        _tokenIds.increment();
+        console.log(
+            "An NFT w/ ID %s has been minted to %s",
+            newItemId,
+            msg.sender
+        );
+    }
 }
