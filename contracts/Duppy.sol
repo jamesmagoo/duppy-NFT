@@ -35,7 +35,15 @@ contract Duppy is ERC721URIStorage {
         "TaylorSwifts",
         "Thors",
         "Kanyes",
-        "Kims"
+        "Kims",
+        "Gandalfs",
+        "SteveBruces",
+        "Ninjas",
+        "Flokis",
+        "Homers",
+        "Lizzies",
+        "Eminems",
+        "Chappelles"
     ];
     string[] secondWords = [
         "Cotton",
@@ -49,7 +57,15 @@ contract Duppy is ERC721URIStorage {
         "Immaculate",
         "Pungent",
         "Parsimonious",
-        "HamFisted"
+        "HamFisted",
+        "Transmoglified",
+        "Shiny",
+        "Eccentric",
+        "Damp",
+        "Nondescript",
+        "Elaborate",
+        "Oversized",
+        "PigHeaded"
     ];
     string[] thirdWords = [
         "Otter",
@@ -57,13 +73,21 @@ contract Duppy is ERC721URIStorage {
         "Candle",
         "MoneyPlant",
         "Mouse",
-        "JugOfMilk",
+        "Sieve",
         "FoamRoller",
         "Box",
         "Cupboard",
         "Database",
         "Airpods",
-        "Pencil"
+        "Pencil",
+        "Coffee",
+        "Lawnmower",
+        "Mask",
+        "Spoon",
+        "Dessert",
+        "Calculator",
+        "Slippers",
+        "Henhouse"
     ];
 
     // We need to pass the name of our NFTs token and it's symbol.

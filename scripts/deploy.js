@@ -20,6 +20,21 @@ const main = async () => {
   // Wait for it to be mined.
   await txn.wait();
   console.log('Minted NFT #2');
+
+  txn = await nftContract.makeAnEpicNFT();
+  // Wait for it to be mined.
+  await txn.wait();
+
+  console.log('Minted NFT #3');
+  txn = await nftContract.makeAnEpicNFT();
+  // Wait for it to be mined.
+  await txn.wait();
+
+  console.log('Minted NFT #4');
+  txn = await nftContract.makeAnEpicNFT();
+  // Wait for it to be mined.
+  await txn.wait();
+  console.log('Minted NFT #5');
 };
 
 const runMain = async () => {
