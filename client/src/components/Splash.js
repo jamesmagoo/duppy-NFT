@@ -3,9 +3,11 @@ import Button from './Button';
 import Footer from './Footer';
 import { ethers } from 'ethers';
 import DuppyABI from '../utils/DuppyABI.json';
+import Spinner from './Spinner'
 
 const Splash = () => {
   const [currentAccount, setCurrentAccount] = useState('');
+  const [mining, setMining] = useState('');
 
   const CONTRACT_ADDRESS = '0x0AB097827C12Dd0A4506C1d44f85d3501e13209e';
   const contractABI = DuppyABI.abi;
@@ -120,12 +122,14 @@ const Splash = () => {
         let nftTxn = await duppyNFT.makeAnEpicNFT();
 
         console.log('Mining...please wait.');
+        setMining(true);
         await nftTxn.wait();
 
         console.log(
           `Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
 
         );
+        setMining(false);
       } else {
         console.log('No ethereum object');
       }
@@ -140,6 +144,13 @@ const Splash = () => {
       <Button title='Connect Wallet' onClick={connectWallet} />
     </div>
   );
+
+  const renderMining = () => (
+    <div>
+      Mining...
+      <Spinner/>
+    </div>
+  )
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -163,6 +174,12 @@ const Splash = () => {
         ) : (
           <Button onClick={mintNFT} title='Mint NFT' />
         )}
+
+        {mining === true ? (
+          renderMining()
+        ) : (<div></div>
+        )}
+    
         <Footer />
       </div>
     </Fragment>
