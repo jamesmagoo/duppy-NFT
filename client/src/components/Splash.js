@@ -7,6 +7,9 @@ import DuppyABI from '../utils/DuppyABI.json';
 const Splash = () => {
   const [currentAccount, setCurrentAccount] = useState('');
 
+  const CONTRACT_ADDRESS = '0x0AB097827C12Dd0A4506C1d44f85d3501e13209e';
+  const contractABI = DuppyABI.abi;
+
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
     if (!ethereum) {
@@ -23,6 +26,9 @@ const Splash = () => {
       const account = accounts[0];
       console.log('Found an authorized account:', account);
       setCurrentAccount(account);
+      // initialise eventListener
+      setupEventListener()
+
     } else {
       console.log('No authorized account found');
     }
@@ -49,15 +55,51 @@ const Splash = () => {
        */
       console.log('Connected', accounts[0]);
       setCurrentAccount(accounts[0]);
+
+      // initialise eventListener
+      setupEventListener()
     } catch (error) {
       console.log(error);
     }
   };
 
-  const mintNFT = async () => {
-    const CONTRACT_ADDRESS = '0xE7825368D5D3cCBD85200382A09734202b866632';
-    const contractABI = DuppyABI.abi;
+   // Setup our listener.
+   const setupEventListener = async () => {
+    // Most of this looks the same as our function askContractToMintNft
+    try {
+      const { ethereum } = window;
 
+      if (ethereum) {
+        // initialise a provider
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        // get the signer
+        const signer = provider.getSigner();
+        // create an instance of the contract to interact with
+        const duppyNFT = new ethers.Contract(
+          CONTRACT_ADDRESS,
+          contractABI,
+          signer
+        );
+
+        // This will essentially "capture" our event when our contract throws it.
+        // If you're familiar with webhooks, it's very similar to that!
+        duppyNFT.on("NFTMinted", (from, tokenId) => {
+          console.log(from, tokenId.toNumber())
+          alert(`Hey there! We've minted your NFT and sent it to your wallet. It may be blank right now. It can take a max of 10 min to show up on OpenSea. Here's the link: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`)
+        });
+
+        console.log("Setup event listener!")
+
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const mintNFT = async () => {
+  
     try {
       // get the ethereum object
       const { ethereum } = window;

@@ -90,6 +90,8 @@ contract Duppy is ERC721URIStorage {
         "Henhouse"
     ];
 
+    event NFTMinted(address sender, uint256 tokenID);
+
     // We need to pass the name of our NFTs token and it's symbol.
     constructor() ERC721("DuppyNFT", "DUPDUP") {
         console.log("DUPPY NFT constructor");
@@ -195,5 +197,7 @@ contract Duppy is ERC721URIStorage {
             newItemId,
             msg.sender
         );
+
+        emit NFTMinted(msg.sender, newItemId);
     }
 }
