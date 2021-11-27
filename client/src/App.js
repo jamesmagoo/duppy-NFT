@@ -1,6 +1,5 @@
 import './App.css';
 import { Fragment } from 'react';
-import Footer from './components/Footer';
 import Splash from './components/Splash';
 import Taleb from './components/Taleb'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -30,7 +29,6 @@ function App() {
           <Routes>
           <Route exact path='/taleb' element={<Taleb/>} />
           </Routes>
-        <Footer />
       </Fragment>
     </Router>
   );
