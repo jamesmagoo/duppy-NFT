@@ -1,5 +1,5 @@
 {
-  "homepage": "http://jamesmagoo.github.io/duppy-NFT",
+  "homepage": "https://jamesmagoo.github.io/duppy-NFT",
   "name": "tailwind-boilerplate",
   "version": "0.1.0",
   "private": true,
@@ -19,7 +19,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "predeploy": "craco build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
