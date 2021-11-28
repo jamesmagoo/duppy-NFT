@@ -90,11 +90,23 @@ contract Duppy is ERC721URIStorage {
         "Henhouse"
     ];
 
+    // Add a limit to the number of NFT's the contract can mint (limited edition)
+    uint256 public collectionLimit = 10;
+
     event NFTMinted(address sender, uint256 tokenID);
 
     // We need to pass the name of our NFTs token and it's symbol.
     constructor() ERC721("DuppyNFT", "DUPDUP") {
         console.log("DUPPY NFT constructor");
+    }
+
+    // Limited edition modifier
+    modifier limitedEdition() {
+        require(
+            _tokenIds.current() < collectionLimit,
+            "Limited Edition NFT, no more available!"
+        );
+        _;
     }
 
     function pickRandomFirstWord(uint256 tokenId)
@@ -142,7 +154,7 @@ contract Duppy is ERC721URIStorage {
         return uint256(keccak256(abi.encodePacked(input)));
     }
 
-    function makeAnEpicNFT() public {
+    function makeAnEpicNFT() public limitedEdition {
         uint256 newItemId = _tokenIds.current();
 
         // We go and randomly grab one word from each of the three arrays.
@@ -183,13 +195,8 @@ contract Duppy is ERC721URIStorage {
 
         _safeMint(msg.sender, newItemId);
 
-        // Sett the tokenURI ()
+        // Set the tokenURI ()
         _setTokenURI(newItemId, finalTokenUri);
-
-        console.log("\n--------------------");
-        // log NFT preview URL with URI for quick debug
-        console.log("https://nftpreview.0xdev.codes/?code=", finalTokenUri);
-        console.log("--------------------\n");
 
         _tokenIds.increment();
         console.log(
@@ -199,5 +206,10 @@ contract Duppy is ERC721URIStorage {
         );
 
         emit NFTMinted(msg.sender, newItemId);
+    }
+
+    function getMintedAmount() public view returns(uint256){
+        console.log("we have minted %s NFT's in total so far", _tokenIds.current());
+        return _tokenIds.current();
     }
 }

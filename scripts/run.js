@@ -4,30 +4,42 @@ const main = async () => {
   await nftContract.deployed();
   console.log('Contract deployed to:', nftContract.address);
 
-  // Call the function.
-  let txn = await nftContract.makeAnEpicNFT();
-  // Wait for it to be mined.
-  await txn.wait();
 
-  // Mint another NFT for fun.
-  txn = await nftContract.makeAnEpicNFT();
-  // Wait for it to be mined.
-  await txn.wait();
+  try {
 
-  // Mint another NFT for fun.
-  txn = await nftContract.makeAnEpicNFT();
-  // Wait for it to be mined.
-  await txn.wait();
-
-  // Mint another NFT for fun.
-  txn = await nftContract.makeAnEpicNFT();
-  // Wait for it to be mined.
-  await txn.wait();
+    const checkNoTxn = await nftContract.getMintedAmount();
   
-  // Mint another NFT for fun.
-  txn = await nftContract.makeAnEpicNFT();
-  // Wait for it to be mined.
-  await txn.wait();
+    // Call the function.
+    let txn = await nftContract.makeAnEpicNFT();
+    // Wait for it to be mined.
+    await txn.wait();
+
+    // Mint another NFT for fun.
+    txn = await nftContract.makeAnEpicNFT();
+    // Wait for it to be mined.
+    await txn.wait();
+
+    // Mint another NFT for fun.
+    txn = await nftContract.makeAnEpicNFT();
+    // Wait for it to be mined.
+    await txn.wait();
+
+    // Mint another NFT for fun.
+    txn = await nftContract.makeAnEpicNFT();
+    // Wait for it to be mined.
+    await txn.wait();
+    
+    // Mint another NFT for fun.
+    txn = await nftContract.makeAnEpicNFT();
+    // Wait for it to be mined.
+    await txn.wait();
+    
+  } catch (error) {
+    console.log(error);
+    console.log("--------------------\n");
+    const checkNoTxn = await nftContract.getMintedAmount();
+  }
+
 };
 
 const runMain = async () => {
