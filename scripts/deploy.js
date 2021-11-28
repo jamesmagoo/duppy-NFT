@@ -6,7 +6,8 @@ const main = async () => {
   console.log('Account balance: ', accountBalance.toString());
 
   const nftContractFactory = await hre.ethers.getContractFactory('Duppy');
-  const nftContract = await nftContractFactory.deploy();
+  // note argument sets totalSupply initiated in contract constructor
+  const nftContract = await nftContractFactory.deploy(15);
   await nftContract.deployed();
   console.log('DuppyNFT deployed to:', nftContract.address);
 

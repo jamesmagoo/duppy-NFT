@@ -4,11 +4,9 @@ const main = async () => {
   await nftContract.deployed();
   console.log('Contract deployed to:', nftContract.address);
 
-
   try {
+    let checkNoTxn = await nftContract.getMintedAmount();
 
-    const checkNoTxn = await nftContract.getMintedAmount();
-  
     // Call the function.
     let txn = await nftContract.makeAnEpicNFT();
     // Wait for it to be mined.
@@ -28,18 +26,18 @@ const main = async () => {
     txn = await nftContract.makeAnEpicNFT();
     // Wait for it to be mined.
     await txn.wait();
-    
+
     // Mint another NFT for fun.
     txn = await nftContract.makeAnEpicNFT();
     // Wait for it to be mined.
     await txn.wait();
-    
+
+    checkNoTxn = await nftContract.getMintedAmount();
   } catch (error) {
     console.log(error);
-    console.log("--------------------\n");
+    console.log('--------------------\n');
     const checkNoTxn = await nftContract.getMintedAmount();
   }
-
 };
 
 const runMain = async () => {

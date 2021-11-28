@@ -15,6 +15,7 @@ contract Duppy is ERC721URIStorage {
 
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    uint256 public totalSupply;
 
     // This is our SVG code. All we need to change is the word that's displayed. Everything else stays the same.
     // So, we make a baseSvg variable here that all our NFTs can use.
@@ -90,20 +91,21 @@ contract Duppy is ERC721URIStorage {
         "Henhouse"
     ];
 
-    // Add a limit to the number of NFT's the contract can mint (limited edition)
-    uint256 public collectionLimit = 10;
+    // // Add a limit to the number of NFT's the contract can mint (limited edition)
+    // uint256 public constant collectionLimit = 50;
 
     event NFTMinted(address sender, uint256 tokenID);
 
     // We need to pass the name of our NFTs token and it's symbol.
-    constructor() ERC721("DuppyNFT", "DUPDUP") {
+    constructor(uint256 _totalSupply) ERC721("DuppyNFT", "DUPPY") {
         console.log("DUPPY NFT constructor");
+        totalSupply = _totalSupply;
     }
 
     // Limited edition modifier
     modifier limitedEdition() {
         require(
-            _tokenIds.current() < collectionLimit,
+            _tokenIds.current() < totalSupply,
             "Limited Edition NFT, no more available!"
         );
         _;
@@ -200,16 +202,25 @@ contract Duppy is ERC721URIStorage {
 
         _tokenIds.increment();
         console.log(
-            "An NFT w/ ID %s has been minted to %s",
+            "An NFT w/ ID %s (of %s) has been minted to %s",
             newItemId,
+            totalSupply,
             msg.sender
         );
 
         emit NFTMinted(msg.sender, newItemId);
     }
 
-    function getMintedAmount() public view returns(uint256){
-        console.log("we have minted %s NFT's in total so far", _tokenIds.current());
-        return _tokenIds.current();
+    function getMintedAmount()
+        public
+        view
+        returns (uint256 currentMint, uint256 limit)
+    {
+        console.log(
+            "we have minted %s NFT's in total so far out of %s",
+            _tokenIds.current(),
+            totalSupply
+        );
+        return (_tokenIds.current(), totalSupply);
     }
 }

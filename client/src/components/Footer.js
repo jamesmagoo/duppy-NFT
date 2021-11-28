@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <div class='max-w-7xl mx-auto py-2 px-4 overflow-hidden sm:px-6 lg:px-8'>
-        <div class='mt-8 flex justify-center space-x-6'>
+        <div class='mt-6 flex justify-center space-x-6'>
           <a
             href='https://twitter.com/J_Magoo'
             target='_blank'
