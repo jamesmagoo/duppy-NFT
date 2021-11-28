@@ -18,10 +18,10 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Fragment>
         <Routes>
-          <Route exact path='/duppy_NFT' element={<Splash />} />
+          <Route exact path='/' element={<Splash />} />
         </Routes>
       </Fragment>
     </Router>
