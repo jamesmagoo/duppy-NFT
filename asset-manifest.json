@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jamesmagoo/duppy-NFT/tree/master/client/static/css/main.392c4d78.chunk.css",
+    "main.js": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/main.dfb4f8ab.chunk.js",
+    "main.js.map": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/main.dfb4f8ab.chunk.js.map",
+    "runtime-main.js": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/runtime-main.ee982e1a.js",
+    "runtime-main.js.map": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/runtime-main.ee982e1a.js.map",
+    "static/js/2.2a860eec.chunk.js": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/2.2a860eec.chunk.js",
+    "static/js/2.2a860eec.chunk.js.map": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/2.2a860eec.chunk.js.map",
+    "index.html": "/jamesmagoo/duppy-NFT/tree/master/client/index.html",
+    "static/css/main.392c4d78.chunk.css.map": "/jamesmagoo/duppy-NFT/tree/master/client/static/css/main.392c4d78.chunk.css.map",
+    "static/js/2.2a860eec.chunk.js.LICENSE.txt": "/jamesmagoo/duppy-NFT/tree/master/client/static/js/2.2a860eec.chunk.js.LICENSE.txt",
+    "static/media/Eth_loading.b8d0739d.gif": "/jamesmagoo/duppy-NFT/tree/master/client/static/media/Eth_loading.b8d0739d.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee982e1a.js",
+    "static/js/2.2a860eec.chunk.js",
+    "static/css/main.392c4d78.chunk.css",
+    "static/js/main.dfb4f8ab.chunk.js"
+  ]
+}
