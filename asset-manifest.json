@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/duppy-nft/client/static/css/main.392c4d78.chunk.css",
-    "main.js": "/duppy-nft/client/static/js/main.dfb4f8ab.chunk.js",
-    "main.js.map": "/duppy-nft/client/static/js/main.dfb4f8ab.chunk.js.map",
-    "runtime-main.js": "/duppy-nft/client/static/js/runtime-main.81df3acf.js",
-    "runtime-main.js.map": "/duppy-nft/client/static/js/runtime-main.81df3acf.js.map",
-    "static/js/2.2a860eec.chunk.js": "/duppy-nft/client/static/js/2.2a860eec.chunk.js",
-    "static/js/2.2a860eec.chunk.js.map": "/duppy-nft/client/static/js/2.2a860eec.chunk.js.map",
-    "index.html": "/duppy-nft/client/index.html",
-    "static/css/main.392c4d78.chunk.css.map": "/duppy-nft/client/static/css/main.392c4d78.chunk.css.map",
-    "static/js/2.2a860eec.chunk.js.LICENSE.txt": "/duppy-nft/client/static/js/2.2a860eec.chunk.js.LICENSE.txt",
-    "static/media/Eth_loading.b8d0739d.gif": "/duppy-nft/client/static/media/Eth_loading.b8d0739d.gif"
+    "main.css": "/duppy-nft/static/css/main.392c4d78.chunk.css",
+    "main.js": "/duppy-nft/static/js/main.dfb4f8ab.chunk.js",
+    "main.js.map": "/duppy-nft/static/js/main.dfb4f8ab.chunk.js.map",
+    "runtime-main.js": "/duppy-nft/static/js/runtime-main.04802397.js",
+    "runtime-main.js.map": "/duppy-nft/static/js/runtime-main.04802397.js.map",
+    "static/js/2.2a860eec.chunk.js": "/duppy-nft/static/js/2.2a860eec.chunk.js",
+    "static/js/2.2a860eec.chunk.js.map": "/duppy-nft/static/js/2.2a860eec.chunk.js.map",
+    "index.html": "/duppy-nft/index.html",
+    "static/css/main.392c4d78.chunk.css.map": "/duppy-nft/static/css/main.392c4d78.chunk.css.map",
+    "static/js/2.2a860eec.chunk.js.LICENSE.txt": "/duppy-nft/static/js/2.2a860eec.chunk.js.LICENSE.txt",
+    "static/media/Eth_loading.b8d0739d.gif": "/duppy-nft/static/media/Eth_loading.b8d0739d.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.81df3acf.js",
+    "static/js/runtime-main.04802397.js",
     "static/js/2.2a860eec.chunk.js",
     "static/css/main.392c4d78.chunk.css",
     "static/js/main.dfb4f8ab.chunk.js"
