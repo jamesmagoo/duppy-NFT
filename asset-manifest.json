@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/duppy-NFT/static/css/main.392c4d78.chunk.css",
-    "main.js": "/duppy-NFT/static/js/main.1c231148.chunk.js",
-    "main.js.map": "/duppy-NFT/static/js/main.1c231148.chunk.js.map",
+    "main.js": "/duppy-NFT/static/js/main.7e49b8c9.chunk.js",
+    "main.js.map": "/duppy-NFT/static/js/main.7e49b8c9.chunk.js.map",
     "runtime-main.js": "/duppy-NFT/static/js/runtime-main.0adeecbf.js",
     "runtime-main.js.map": "/duppy-NFT/static/js/runtime-main.0adeecbf.js.map",
     "static/js/2.425d772c.chunk.js": "/duppy-NFT/static/js/2.425d772c.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.0adeecbf.js",
     "static/js/2.425d772c.chunk.js",
     "static/css/main.392c4d78.chunk.css",
-    "static/js/main.1c231148.chunk.js"
+    "static/js/main.7e49b8c9.chunk.js"
   ]
 }
