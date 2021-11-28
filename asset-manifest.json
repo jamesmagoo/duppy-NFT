@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/duppy-NFT/static/css/main.392c4d78.chunk.css",
-    "main.js": "/duppy-NFT/static/js/main.dfb4f8ab.chunk.js",
-    "main.js.map": "/duppy-NFT/static/js/main.dfb4f8ab.chunk.js.map",
+    "main.js": "/duppy-NFT/static/js/main.1c231148.chunk.js",
+    "main.js.map": "/duppy-NFT/static/js/main.1c231148.chunk.js.map",
     "runtime-main.js": "/duppy-NFT/static/js/runtime-main.0adeecbf.js",
     "runtime-main.js.map": "/duppy-NFT/static/js/runtime-main.0adeecbf.js.map",
-    "static/js/2.2a860eec.chunk.js": "/duppy-NFT/static/js/2.2a860eec.chunk.js",
-    "static/js/2.2a860eec.chunk.js.map": "/duppy-NFT/static/js/2.2a860eec.chunk.js.map",
+    "static/js/2.425d772c.chunk.js": "/duppy-NFT/static/js/2.425d772c.chunk.js",
+    "static/js/2.425d772c.chunk.js.map": "/duppy-NFT/static/js/2.425d772c.chunk.js.map",
     "index.html": "/duppy-NFT/index.html",
     "static/css/main.392c4d78.chunk.css.map": "/duppy-NFT/static/css/main.392c4d78.chunk.css.map",
-    "static/js/2.2a860eec.chunk.js.LICENSE.txt": "/duppy-NFT/static/js/2.2a860eec.chunk.js.LICENSE.txt",
+    "static/js/2.425d772c.chunk.js.LICENSE.txt": "/duppy-NFT/static/js/2.425d772c.chunk.js.LICENSE.txt",
     "static/media/Eth_loading.b8d0739d.gif": "/duppy-NFT/static/media/Eth_loading.b8d0739d.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.0adeecbf.js",
-    "static/js/2.2a860eec.chunk.js",
+    "static/js/2.425d772c.chunk.js",
     "static/css/main.392c4d78.chunk.css",
-    "static/js/main.dfb4f8ab.chunk.js"
+    "static/js/main.1c231148.chunk.js"
   ]
 }
