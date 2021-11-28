@@ -7,7 +7,7 @@ const main = async () => {
 
   const nftContractFactory = await hre.ethers.getContractFactory('Duppy');
   // note argument sets totalSupply initiated in contract constructor
-  const nftContract = await nftContractFactory.deploy(15);
+  const nftContract = await nftContractFactory.deploy(100);
   await nftContract.deployed();
   console.log('DuppyNFT deployed to:', nftContract.address);
 

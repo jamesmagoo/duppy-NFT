@@ -11,7 +11,7 @@ const Splash = () => {
   const [editionNo, setEditionNo] = useState('');
   const [collectionLimit, setCollectionLimit] = useState('');
 
-  const CONTRACT_ADDRESS = '0x9e14aFF0945ef44AC6e36B4722dD6eB65623fbe0';
+  const CONTRACT_ADDRESS = '0x2131623a08c2A7D42C16dBa4134ed763A20c5eFD';
   const contractABI = DuppyABI.abi;
 
   const checkIfWalletIsConnected = async () => {
